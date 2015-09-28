@@ -1,16 +1,12 @@
 package expression;
 
 
-public class Addition extends Expression{
-    private final Expression left;
-    private final Expression right;
+public class Addition extends Operation{
 
-    public Addition(Expression left, Expression right) {
 
-        this.left = left;
-        this.right = right;
+    public Addition(Expression right, Expression left) {
+        super(right, left);
     }
-
 
     @Override
     public int value(){

@@ -10,17 +10,19 @@ public class Evaluator_ {
 
     @Test
     public void should_evaluate_constant_expresion() throws Exception {
-        Evaluator evaluator = new Evaluator();
-        assertEquals(5, evaluator.evaluate(new Constant(5)));
-
+        assertEquals(5, new Constant(5).value());
     }
-
 
     @Test
     public void should_evaluate_add_expression() throws Exception {
-        Evaluator evaluator = new Evaluator();
-        assertEquals(5, evaluator.evaluate(new Addition(new Constant(3), new Constant(2))));
-        assertEquals(9, evaluator.evaluate(new Addition(new Constant(3), new Constant(6))));
-        assertEquals(12, evaluator.evaluate(new Addition(new Constant(3), new Addition(new Constant(6), new Constant(3)))));
+        assertEquals(5, new Addition(new Constant(3), new Constant(2)).value());
+        assertEquals(9, new Addition(new Constant(3), new Constant(6)).value());
+        assertEquals(12, new Addition(new Constant(3), new Addition(new Constant(6), new Constant(3))).value());
+    }
+
+    @Test
+    public void should_evaluate_subtract_expressions() throws Exception {
+        assertEquals(1, new Subtraction(new Constant(3), new Constant(2)).value());
+
     }
 }
